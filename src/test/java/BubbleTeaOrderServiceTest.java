@@ -4,6 +4,8 @@ import com.techreturners.bubbleteaordersystem.service.BubbleTeaOrderService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import testhelper.DummySimpleLogger;
 
 import static org.junit.Assert.*;
@@ -26,6 +28,8 @@ public class BubbleTeaOrderServiceTest {
         bubbleTeaOrderService = new BubbleTeaOrderService(dummySimpleLogger, mockMessenger);
     }
 
+    @ParameterizedTest
+    @EnumSource(BubbleTeaTypeEnum.class)
     @Test
     public void shouldCreateBubbleTeaOrderRequestWhenCreateOrderRequestIsCalled() {
 
